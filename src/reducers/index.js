@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
-import fuelSavings from './fuelSavingsReducer';
-import { routerReducer } from 'react-router-redux';
+import courses from './courseReducer';
+import authors from './authorReducer';
+import ajaxCallsInProgress from './ajaxStatusReducer';
 
-const rootReducer = combineReducers({
-  fuelSavings,
-  routing: routerReducer
-});
+const rootReducer = combineReducers(
+  {
+    courses,
+    authors,
+    ajaxCallsInProgress
+  }
+);
 
 export default rootReducer;

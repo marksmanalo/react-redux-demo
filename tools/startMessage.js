@@ -1,5 +1,5 @@
-import {chalkSuccess} from './chalkConfig';
+import colors from 'colors';
 
 /* eslint-disable no-console */
 
-console.log(chalkSuccess('Starting app in dev mode...'));
+console.log('starting app in dev mode...'.green);

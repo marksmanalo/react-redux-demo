@@ -1,27 +1,30 @@
-// This file configures a web server for testing the production build
-// on your local machine.
+// this file is optional, it just launches the production version of the build
+// located in the dist folder, its similar to src server (which launches the dev version)
+// of the build located in the src folder
+// this is useful for testing the production build locally
 
-import browserSync from 'browser-sync';
-import historyApiFallback from 'connect-history-api-fallback';
-import {chalkProcessing} from './chalkConfig';
+import express from 'express';
+import path from 'path';
+import open from 'open';
+import compression from 'compression';
 
-/* eslint-disable no-console */
+/*eslint-disable no-console */
 
-console.log(chalkProcessing('Opening production build...'));
+const port = 3000;
+const app = express();
 
-// Run Browsersync
-browserSync({
-  port: 4000,
-  ui: {
-    port: 4001
-  },
-  server: {
-    baseDir: 'dist'
-  },
+app.use(compression());
+app.use(express.static('dist'));
 
-  files: [
-    'src/*.html'
-  ],
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
 
-  middleware: [historyApiFallback()]
+app.listen(port, function(err) {
+  if (err) {
+    console.log(err);
+  }
+  else {
+    open(`http://localhost:${port}`);
+  }
 });
