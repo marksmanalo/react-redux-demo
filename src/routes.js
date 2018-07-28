@@ -3,15 +3,15 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
-import CoursesPage from './components/course/CoursesPage';
-import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
+import CustomersPage from './components/customer/CustomersPage';
+import ManageCustomerPage from './components/customer/ManageCustomerPage'; //eslint-disable-line import/no-named-as-default
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="courses" component={CoursesPage} />
-    <Route path="course" component={ManageCoursePage} />
-    <Route path="course/:id" component={ManageCoursePage} />
+    <Route path="customers" component={CustomersPage} />
+    <Route path="customer" component={ManageCustomerPage} />
+    <Route path="customer/:id" component={ManageCustomerPage} />
     <Route path="about" component={AboutPage} />
   </Route>
 );

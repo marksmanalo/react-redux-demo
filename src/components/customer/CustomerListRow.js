@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const CourseListRow = ( {course} ) => {
+const CustomerListRow = ( {course} ) => {
   return (
     <tr>
       <td><a href={course.watchHref} target="_blank">Watch</a></td>
@@ -13,4 +13,4 @@ const CourseListRow = ( {course} ) => {
   );
 };
 
-export default CourseListRow;
+export default CustomerListRow;

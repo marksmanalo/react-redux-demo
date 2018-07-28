@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
-import CourseForm from './CourseForm';
+import CustomerForm from './CustomerForm';
 import { browserHistory } from 'react-router';
 import toastr from 'toastr';
 import { authorsFormattedForDropdown } from '../../selectors/selectors';
 
-export class ManageCoursePage extends React.Component {
+export class ManageCustomerPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -34,13 +34,13 @@ export class ManageCoursePage extends React.Component {
     return this.setState({course: course});
   }
 
-  redirectToAddCoursesPage() {
+  redirectToAddCustomersPage() {
     this.setState({saving: false});
     toastr.success('Course saved');
     browserHistory.push('/courses');
   }
 
-  courseFormIsValid() {
+  CustomerFormIsValid() {
     let formIsValid = true;
     let errors = {};
 
@@ -56,12 +56,12 @@ export class ManageCoursePage extends React.Component {
   saveCourse(event) {
     event.preventDefault();
 
-    if (!this.courseFormIsValid()) {
+    if (!this.CustomerFormIsValid()) {
       return;
     }
 
     this.setState({saving: true});
-    this.props.actions.saveCourse(this.state.course).then(() => this.redirectToAddCoursesPage())
+    this.props.actions.saveCourse(this.state.course).then(() => this.redirectToAddCustomersPage())
       .catch(error => {
         toastr.error(error);
         this.setState({saving: false});
@@ -70,7 +70,7 @@ export class ManageCoursePage extends React.Component {
 
   render() {
     return (
-      <CourseForm
+      <CustomerForm
         allAuthors={this.props.authors}
         onChange={this.updateCourseState}
         onSave={this.saveCourse}
@@ -109,4 +109,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageCustomerPage);

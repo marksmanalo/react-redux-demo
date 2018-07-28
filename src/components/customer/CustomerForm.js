@@ -2,7 +2,7 @@ import React from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
-const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
+const CustomerForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
   return (
     <form>
       <h1>Manage Course</h1>
@@ -51,4 +51,4 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
   );
 };
 
-export default CourseForm;
+export default CustomerForm;

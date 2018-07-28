@@ -1,7 +1,7 @@
 import React from 'react';
-import CourseListRow from './CourseListRow';
+import CustomerListRow from './CustomerListRow';
 
-const CourseList = ({courses}) => {
+const CustomerList = ({courses}) => {
   return (
     <table className="table">
       <thead>
@@ -15,11 +15,11 @@ const CourseList = ({courses}) => {
       </thead>
       <tbody>
       {courses.map( course =>
-        <CourseListRow key={course.id} course={course} />
+        <CustomerListRow key={course.id} course={course} />
       )}
       </tbody>
     </table>
   );
 };
 
-export default CourseList;
+export default CustomerList;

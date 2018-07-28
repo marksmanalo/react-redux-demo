@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { mount, shallow } from 'enzyme';
-import { ManageCoursePage } from './ManageCoursePage';
+import { ManageCustomerPage } from './ManageCustomerPage';
 
 describe('Manage Course Page', () => {
   it('sets error message when trying to save empty title', () => {
@@ -12,7 +12,7 @@ describe('Manage Course Page', () => {
       course: {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''}
     };
 
-    const wrapper = mount(<ManageCoursePage {...props}/>);
+    const wrapper = mount(<ManageCustomerPage {...props}/>);
     const saveButton = wrapper.find('input').last();
     expect(saveButton.prop('type')).toBe('submit');
     saveButton.simulate('click');

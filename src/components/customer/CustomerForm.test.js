@@ -2,7 +2,7 @@ import expect from 'expect';
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import TestUtils from 'react-addons-test-utils';
-import CourseForm from './CourseForm';
+import CustomerForm from './CustomerForm';
 
 function setup(saving) {
   const props = {
@@ -11,10 +11,10 @@ function setup(saving) {
     onChange: () => {}
   };
 
-  return shallow(<CourseForm {...props} />);
+  return shallow(<CustomerForm {...props} />);
 }
 
-describe('CourseForm via Enzyme', () => {
+describe('CustomerForm via Enzyme', () => {
   it('renders form and h1', () => {
     const wrapper = setup(false);
     expect(wrapper.find('form').length).toBe(1);
