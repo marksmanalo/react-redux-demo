@@ -1,5 +1,5 @@
 import expect from 'expect';
-import courseReducer from './courseReducer';
+import customerReducer from './customerReducer';
 import * as actions from '../actions/courseActions';
 
 describe('Course Reducer', () => {
@@ -15,7 +15,7 @@ describe('Course Reducer', () => {
     const action = actions.createCourseSuccess(newCourse);
 
     // act
-    const newState = courseReducer(initialState, action);
+    const newState = customerReducer(initialState, action);
 
     // assert
     expect(newState.length).toEqual(3);
@@ -36,7 +36,7 @@ describe('Course Reducer', () => {
     const action = actions.updateCourseSuccess(course);
 
     // act
-    const newState = courseReducer(initialState, action);
+    const newState = customerReducer(initialState, action);
     const updatedCourse = newState.find(a => a.id == course.id);
     const untouchedCourse = newState.find(a => a.id == 'A');
 

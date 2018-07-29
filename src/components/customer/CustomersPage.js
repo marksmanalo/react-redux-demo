@@ -19,7 +19,7 @@ class CustomersPage extends React.Component {
   }
 
   render () {
-    const { courses } = this.props;
+    const { customers } = this.props;
     return (
       <div>
         <h1>Customers</h1>
@@ -29,7 +29,7 @@ class CustomersPage extends React.Component {
           className="btn btn-primary"
           onClick={this.redirectToAddCoursePage}
         />        
-        <CustomerList courses={courses} />
+        <CustomerList customers={customers} />
       </div>
     );
   }
@@ -37,7 +37,7 @@ class CustomersPage extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    courses: state.courses
+    customers: state.customers
   };
 }
 

@@ -7,6 +7,7 @@ class HomePage extends React.Component {
       <div className="jumbotron">
           <h1>React with Redux Demo</h1>
           <p>Demo of React, Redux and React Router </p>
+          <p>Dealership with customers and their vehicle of interest </p>
           <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
       </div>
     );

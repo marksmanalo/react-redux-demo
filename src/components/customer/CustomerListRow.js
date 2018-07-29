@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const CustomerListRow = ( {course} ) => {
+const CustomerListRow = ( {customer} ) => {
   return (
     <tr>
-      <td><a href={course.watchHref} target="_blank">Watch</a></td>
-      <td><Link to={'/course/' + course.id}>{course.title}</Link></td>
-      <td>{course.authorId}</td>
-      <td>{course.category}</td>
-      <td>{course.length}</td>
+      <td><Link to={'/customer/' + customer.id}>{customer.title}</Link></td>
+      <td>{customer.authorId}</td>
+      <td>{customer.category}</td>
+      <td>{customer.length}</td>
     </tr>
   );
 };

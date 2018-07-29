@@ -1,21 +1,20 @@
 import React from 'react';
 import CustomerListRow from './CustomerListRow';
 
-const CustomerList = ({courses}) => {
+const CustomerList = ({customers}) => {
   return (
     <table className="table">
       <thead>
       <tr>
-        <th>&nbsp;</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Category</th>
-        <th>Length</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Vehicle Of Interest</th>
       </tr>
       </thead>
       <tbody>
-      {courses.map( course =>
-        <CustomerListRow key={course.id} course={course} />
+      {customers.map( customer =>
+        <CustomerListRow key={customer.id} customer={customer} />
       )}
       </tbody>
     </table>

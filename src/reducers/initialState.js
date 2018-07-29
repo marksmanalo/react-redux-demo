@@ -1,5 +1,5 @@
 export default {
   authors: [],
-  courses: [],
+  customers: [],
   ajaxCallsInProgress: 0
 };

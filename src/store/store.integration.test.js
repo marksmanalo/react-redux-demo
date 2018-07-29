@@ -8,16 +8,16 @@ describe('Store', () => {
   it('Should handle creating courses', () => {
     // arrange
     const store = createStore(rootReducer, initialState);
-    const course = {
+    const customer = {
       title: 'Clean Code'
     };
 
     // act
-    const action = courseActions.createCourseSuccess(course);
+    const action = courseActions.createCourseSuccess(customer);
     store.dispatch(action);
 
     // assert
-    const actual = store.getState().courses[0];
+    const actual = store.getState().customers[0];
     const expected = {
       title: 'Clean Code'
     };
