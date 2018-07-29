@@ -4,10 +4,10 @@ import { Link } from 'react-router';
 const CustomerListRow = ( {customer} ) => {
   return (
     <tr>
-      <td><Link to={'/customer/' + customer.id}>{customer.title}</Link></td>
-      <td>{customer.authorId}</td>
-      <td>{customer.category}</td>
-      <td>{customer.length}</td>
+      <td><Link to={'/customer/' + customer.id}>{customer.firstName}</Link></td>
+      <td>{customer.email}</td>
+      <td>{customer.phoneNumber}</td>
+      <td>{customer.vehicleOfInterest}</td>
     </tr>
   );
 };
