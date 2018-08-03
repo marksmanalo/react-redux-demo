@@ -1,8 +1,8 @@
-export function authorsFormattedForDropdown(authors) {
-  return authors.map(author => {
+export function vehiclesFormattedForDropdown(vehicles) {
+  return vehicles.map(vehicle => {
     return {
-      value: author.id,
-      text: author.firstName + ' ' + author.lastName
+      value: vehicle.id,
+      text: vehicle.color + ' ' + vehicle.model
     };
   });
 }

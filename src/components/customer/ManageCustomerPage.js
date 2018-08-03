@@ -1,51 +1,51 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as courseActions from '../../actions/courseActions';
+import * as customerActions from '../../actions/customerActions';
 import CustomerForm from './CustomerForm';
 import { browserHistory } from 'react-router';
 import toastr from 'toastr';
-import { authorsFormattedForDropdown } from '../../selectors/selectors';
+import { vehiclesFormattedForDropdown } from '../../selectors/selectors';
 
 export class ManageCustomerPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      course: Object.assign({}, this.props.course),
+      customer: Object.assign({}, this.props.customer),
       errors: {},
       saving: false
     };
     
-    this.updateCourseState = this.updateCourseState.bind(this);
-    this.saveCourse = this.saveCourse.bind(this);
+    this.updateCustomerState = this.updateCustomerState.bind(this);
+    this.saveCustomer = this.saveCustomer.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.course.id != nextProps.course.id) {
-      this.setState({course: Object.assign({}, nextProps.course)});
+    if (this.props.customer.id != nextProps.customer.id) {
+      this.setState({customer: Object.assign({}, nextProps.customer)});
     }
   }
 
-  updateCourseState(event) {
+  updateCustomerState(event) {
     const field = event.target.name;
-    let course = Object.assign({}, this.state.course);
-    course[field] = event.target.value;
-    return this.setState({course: course});
+    let customer = Object.assign({}, this.state.customer);
+    customer[field] = event.target.value;
+    return this.setState({customer: customer});
   }
 
   redirectToAddCustomersPage() {
     this.setState({saving: false});
-    toastr.success('Course saved');
-    browserHistory.push('/courses');
+    toastr.success('Customer saved');
+    browserHistory.push('/customers');
   }
 
   CustomerFormIsValid() {
     let formIsValid = true;
     let errors = {};
 
-    if (this.state.course.title.length < 5 ){
-      errors.title = 'Title must be at least 5 characters';
+    if (this.state.customer.phoneNumber.length < 10 ||  this.state.customer.phoneNumber.length > 10){
+      errors.title = 'Phone Number must be 10 characters';
       formIsValid = false;
     }
 
@@ -53,7 +53,7 @@ export class ManageCustomerPage extends React.Component {
     return formIsValid;
   }
 
-  saveCourse(event) {
+  saveCustomer(event) {
     event.preventDefault();
 
     if (!this.CustomerFormIsValid()) {
@@ -61,7 +61,7 @@ export class ManageCustomerPage extends React.Component {
     }
 
     this.setState({saving: true});
-    this.props.actions.saveCourse(this.state.course).then(() => this.redirectToAddCustomersPage())
+    this.props.actions.saveCustomer(this.state.customer).then(() => this.redirectToAddCustomersPage())
       .catch(error => {
         toastr.error(error);
         this.setState({saving: false});
@@ -71,10 +71,10 @@ export class ManageCustomerPage extends React.Component {
   render() {
     return (
       <CustomerForm
-        allAuthors={this.props.authors}
-        onChange={this.updateCourseState}
-        onSave={this.saveCourse}
-        course={this.state.course}
+        allVehicles={this.props.vehicles}
+        onChange={this.updateCustomerState}
+        onSave={this.saveCustomer}
+        customer={this.state.customer}
         errors={this.state.errors}
         saving={this.state.saving}
       />
@@ -82,30 +82,30 @@ export class ManageCustomerPage extends React.Component {
   } 
 }
 
-function getCourseById(courses, id) {
-  const course = courses.filter(course => course.id == id);
-  if (course.length) return course[0];
+function getCustomerById(customers, id) {
+  const customer = customers.filter(customer => customer.id == id);
+  if (customer.length) return customer[0];
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
 
-  let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
-  const courseId = ownProps.params.id;  // from the path '/course/:id'
+  let customer = {id: '', firstName: '', lastName: '', email: '', phoneNumber: '', vehicleOfInterest: ''};
+  const customerId = ownProps.params.id;  // from the path '/customer/:id'
 
-  if (courseId && state.courses.length > 0) {
-    course = getCourseById(state.courses, courseId);
+  if (customerId && state.customers.length > 0) {
+    customer = getCustomerById(state.customers, customerId);
   }
 
   return {
-    course: course,
-    authors: authorsFormattedForDropdown(state.authors)
+    customer: customer,
+    vehicles: vehiclesFormattedForDropdown(state.vehicles)
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(courseActions, dispatch)
+    actions: bindActionCreators(customerActions, dispatch)
   };
 }
 

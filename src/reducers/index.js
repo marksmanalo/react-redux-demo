@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import customers from './customerReducer';
-import authors from './authorReducer';
+import vehicles from './vehicleReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 
 const rootReducer = combineReducers(
   {
     customers,
-    authors,
+    vehicles,
     ajaxCallsInProgress
   }
 );

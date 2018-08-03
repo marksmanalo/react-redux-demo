@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as courseActions from '../../actions/courseActions';
+import * as customerActions from '../../actions/customerActions';
 import CustomerList from './CustomerList';
 import { browserHistory } from 'react-router';
 
@@ -10,12 +10,8 @@ class CustomersPage extends React.Component {
     super(props, context);
   }
 
-  courseRow(course, index) {
-    return <div key={index}>{course.title}</div>;
-  }
-
-  redirectToAddCoursePage() {
-    browserHistory.push('/course');
+  redirectToAddCustomerPage() {
+    browserHistory.push('/customer');
   }
 
   render () {
@@ -27,7 +23,7 @@ class CustomersPage extends React.Component {
           type="submit"
           value="Add Customer"
           className="btn btn-primary"
-          onClick={this.redirectToAddCoursePage}
+          onClick={this.redirectToAddCustomerPage}
         />        
         <CustomerList customers={customers} />
       </div>
@@ -43,7 +39,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(courseActions, dispatch)
+    actions: bindActionCreators(customerActions, dispatch)
   };
 }
 

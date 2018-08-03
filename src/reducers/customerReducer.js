@@ -3,18 +3,18 @@ import initialState from './initialState';
 
 export default function customerReducer(state = initialState.customers, action) {
   switch(action.type) {
-    case types.LOAD_COURSES_SUCCESS: 
-      return action.courses;
+    case types.LOAD_CUSTOMERS_SUCCESS: 
+      return action.customers;
 
-    case types.CREATE_COURSE_SUCCESS:
+    case types.CREATE_CUSTOMER_SUCCESS:
       return [
         ...state,
-        Object.assign({}, action.course)
+        Object.assign({}, action.customer)
       ];
-    case types.UPDATE_COURSE_SUCCESS:
+    case types.UPDATE_CUSTOMER_SUCCESS:
       return [
-        ...state.filter(course => course.id !== action.course.id),
-        Object.assign({}, action.course)
+        ...state.filter(customer => customer.id !== action.customer.id),
+        Object.assign({}, action.customer)
       ];
     
     default:

@@ -2,42 +2,50 @@ import React from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
-const CustomerForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
+const CustomerForm = ({customer, allVehicles, onSave, onChange, saving, errors}) => {
   return (
     <form>
-      <h1>Manage Course</h1>
+      <h1>Manage Customer</h1>
       <TextInput
-        name="title"
-        label="Title"
-        value={course.title}
+        name="firstName"
+        label="First Name"
+        value={customer.firstName}
         onChange={onChange}
-        error={errors.title}
+        error={errors.firstName}
       />
+
+      <TextInput
+        name="lastName"
+        label="Last Name"
+        value={customer.lastName}
+        onChange={onChange}
+        error={errors.lastName}
+      />    
 
       <SelectInput
-        name="authorId"
-        label="Author"
-        value={course.authorId}
-        defaultOption="Select Author"
-        options={allAuthors}
+        name="vehicleId"
+        label="Vehicle"
+        value={customer.vehicleId}
+        defaultOption="Select Vehicle"
+        options={allVehicles}
         onChange={onChange}
-        error={errors.authorId}
+        error={errors.vehicleId}
       />
 
       <TextInput
-        name="category"
-        label="Category"
-        value={course.category}
+        name="email"
+        label="Email"
+        value={customer.email}
         onChange={onChange}
-        error={errors.category}
+        error={errors.email}
       />
 
       <TextInput
-        name="length"
-        label="Length"
-        value={course.length}
+        name="phoneNumber"
+        label="Phone Number"
+        value={customer.phoneNumber}
         onChange={onChange}
-        error={errors.length}
+        error={errors.phoneNumber}
       />
 
       <input

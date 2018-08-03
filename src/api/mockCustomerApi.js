@@ -10,7 +10,7 @@ const customers = [
     lastName: "romero",
     email: "al.romero@gmail.com",
     phoneNumber: "4561239874",
-    vehicleOfInterest: "Civic"
+    vehicleId: ""
   },
   {
     id: "stan-lee",
@@ -18,7 +18,7 @@ const customers = [
     lastName: "lee",
     email: "stan@lee.com",
     phoneNumber: "3453845678",
-    vehicleOfInterest: "Accord"
+    vehicleId: ""    
   },
   {
     id: "kenny-smith",
@@ -26,7 +26,7 @@ const customers = [
     lastName: "smith",
     email: "ken@smith.com",
     phoneNumber: "3457886678",
-    vehicleOfInterest: "HRV"
+    vehicleId: ""
   },
   {
     id: "jen-hernandez",
@@ -34,7 +34,7 @@ const customers = [
     lastName: "hernandez",
     email: "jhernandez@gmail.com",
     phoneNumber: "3464234345",
-    vehicleOfInterest: "CRV"
+    vehicleId: ""    
   },
   {
     id: "mina-pui",
@@ -42,7 +42,8 @@ const customers = [
     lastName: "pui",
     email: "mp@mgail.com",
     phoneNumber: "2338765545",
-    vehicleOfInterest: "Pilot"
+    vehicleOfInterest: "Pilot",
+    vehicleId: ""
   }
 ];
 
@@ -51,12 +52,12 @@ function replaceAll(str, find, replace) {
 }
 
 //This would be performed on the server in a real app. Just stubbing in.
-const generateId = (course) => {
-  return replaceAll(course.title, ' ', '-');
+const generateId = (customer) => {
+  return customer.firstName.toLowerCase() + '-' + customer.lastName.toLowerCase();
 };
 
-class CourseApi {
-  static getAllCourses() {
+class CustomerApi {
+  static getAllCustomers() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], customers));
@@ -64,44 +65,43 @@ class CourseApi {
     });
   }
 
-  static saveCourse(course) {
-    course = Object.assign({}, course); // to avoid manipulating object passed in.
+  static saveCustomer(customer) {
+    customer = Object.assign({}, customer); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
-        const minCourseTitleLength = 1;
-        if (course.title.length < minCourseTitleLength) {
-          reject(`Title must be at least ${minCourseTitleLength} characters.`);
+        const phoneNumberLength = 10;
+        if (customer.phoneNumber.length < phoneNumberLength || customer.phoneNumber.length > phoneNumberLength) {
+          reject(`Title must be ${phoneNumberLength} characters.`);
         }
 
-        if (course.id) {
-          const existingCourseIndex = customers.findIndex(a => a.id == course.id);
-          customers.splice(existingCourseIndex, 1, course);
+        if (customer.id) {
+          const existingCustomerIndex = customers.findIndex(a => a.id == customer.id);
+          customers.splice(existingCustomerIndex, 1, customer);
         } else {
           //Just simulating creation here.
           //The server would generate ids and watchHref's for new customers in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
-          course.id = generateId(course);
-          course.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
-          customers.push(course);
+          customer.id = generateId(customer);
+          customers.push(customer);
         }
 
-        resolve(course);
+        resolve(customer);
       }, delay);
     });
   }
 
-  static deleteCourse(courseId) {
+  static deleteCustomer(customerId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const indexOfCourseToDelete = customers.findIndex(course => {
-          course.id == courseId;
+        const indexOfCustomerToDelete = customers.findIndex(customer => {
+          customer.id == customerId;
         });
-        customers.splice(indexOfCourseToDelete, 1);
+        customers.splice(indexOfCustomerToDelete, 1);
         resolve();
       }, delay);
     });
   }
 }
 
-export default CourseApi;
+export default CustomerApi;
