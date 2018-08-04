@@ -2,7 +2,7 @@ import expect from 'expect';
 import { createStore } from 'redux';
 import rootReducer from '../reducers';
 import initialState from '../reducers/initialState';
-import * as courseActions from '../actions/courseActions';
+import * as customerActions from '../actions/customerActions';
 
 describe('Store', () => {
   it('Should handle creating courses', () => {
@@ -13,7 +13,7 @@ describe('Store', () => {
     };
 
     // act
-    const action = courseActions.createCourseSuccess(customer);
+    const action = customerActions.createCustomerSuccess(customer);
     store.dispatch(action);
 
     // assert

@@ -3,7 +3,7 @@ import expect from 'expect';
 import { mount, shallow } from 'enzyme';
 import { ManageCustomerPage } from './ManageCustomerPage';
 
-describe('Manage Course Page', () => {
+describe('Manage Customer Page', () => {
   it('sets error message when trying to save empty title', () => {
 
     const props = {
