@@ -17,7 +17,7 @@ describe('CustomerForm via Enzyme', () => {
   it('renders form and h1', () => {
     const wrapper = setup(false);
     expect(wrapper.find('form').length).toBe(1);
-    expect(wrapper.find('h1').text()).toEqual('Manage Course');
+    expect(wrapper.find('h1').text()).toEqual('Manage Customer');
   });
 
   it('save button is labeld "Save" when not saving', () => {
