@@ -5,7 +5,7 @@ import CustomerForm from './CustomerForm';
 
 function setup(saving) {
   const props = {
-    course: {}, saving: saving, errors: {},
+    customer: {}, saving: saving, errors: {},
     onSave: () => {},
     onChange: () => {}
   };

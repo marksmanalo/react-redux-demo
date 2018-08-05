@@ -40,12 +40,12 @@ export class ManageCustomerPage extends React.Component {
     browserHistory.push('/customers');
   }
 
-  CustomerFormIsValid() {
+  customerFormIsValid() {
     let formIsValid = true;
     let errors = {};
 
     if (this.state.customer.phoneNumber.length < 10 ||  this.state.customer.phoneNumber.length > 10){
-      errors.title = 'Phone Number must be 10 characters';
+      errors.phoneNumber = 'Phone Number must be 10 characters';
       formIsValid = false;
     }
 
@@ -56,7 +56,7 @@ export class ManageCustomerPage extends React.Component {
   saveCustomer(event) {
     event.preventDefault();
 
-    if (!this.CustomerFormIsValid()) {
+    if (!this.customerFormIsValid()) {
       return;
     }
 

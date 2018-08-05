@@ -2,15 +2,15 @@ import expect from 'expect';
 import customerReducer from './customerReducer';
 import * as actions from '../actions/customerActions';
 
-describe('Course Reducer', () => {
-  it('should add course when passed CREATE_COURSE_SUCCESS', () => {
+describe('Customer Reducer', () => {
+  it('should add customer when passed CREATE_CUSTOMER_SUCCESS', () => {
     // arrange
     const initialState = [
       {firstName: 'A'},
       {firstName: 'B'}
     ];
 
-    const newCustomer = {firsName: 'C'};
+    const newCustomer = {firstName: 'C'};
 
     const action = actions.createCustomerSuccess(newCustomer);
 
@@ -41,7 +41,7 @@ describe('Course Reducer', () => {
     const untouchedCustomer = newState.find(a => a.id == 'A');
 
     // assert
-    expect(updatedCustomer.firstName).toEqual('New Title');
+    expect(updatedCustomer.firstName).toEqual('New Name');
     expect(untouchedCustomer.firstName).toEqual('A');
     expect(newState.length).toEqual(3);
   });  
