@@ -1,20 +1,20 @@
 import expect from 'expect';
-import { authorsFormattedForDropdown } from './selectors';
+import { vehiclesFormattedForDropdown } from './selectors';
 
-describe('Author Selectors', () => {
-  describe('authorsFormattedForDropdown', () => {
-    it('should return author data formatted for use in a dropdown', () => {
-      const authors = [
-        {id: 'cory-house', firstName: 'Cory', lastName: 'House'},
-        {id: 'scott-allen', firstName: 'Scott', lastName: 'Allen'}
+describe('Vehicle Selectors', () => {
+  describe('vehiclesFormattedForDropdown', () => {
+    it('should return vehicle data formatted for use in a dropdown', () => {
+      const vehicles = [
+        {id: 'white-civic', miles: '10000', color: 'white', model: 'Civic'},
+        {id: 'black-crv', miles: '20000', color: 'black', model: 'CRV'}
       ];
 
       const expected = [
-        {value: 'cory-house', text: 'Cory House'},
-        {value: 'scott-allen', text: 'Scott Allen'}
+        {value: 'white-civic', text: 'white Civic'},
+        {value: 'black-crv', text: 'black CRV'}
       ];
 
-      expect(authorsFormattedForDropdown(authors)).toEqual(expected);
+      expect(vehiclesFormattedForDropdown(vehicles)).toEqual(expected);
     });
   });
 });
