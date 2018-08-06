@@ -59,10 +59,10 @@ export class ManageCustomerPage extends React.Component {
       formIsValid = false;
     }
 
-    if (this.state.customer.phoneNumber.length < 10 ||  this.state.customer.phoneNumber.length > 10){
-      errors.phoneNumber = 'Phone Number must be 10 characters';
-      formIsValid = false;
-    }
+    // if (this.state.customer.phoneNumber.length < 10 ||  this.state.customer.phoneNumber.length > 10){
+    //   errors.phoneNumber = 'Phone Number must be 10 characters';
+    //   formIsValid = false;
+    // }
 
     this.setState({errors: errors});
     return formIsValid;
