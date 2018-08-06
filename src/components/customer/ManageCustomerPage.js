@@ -44,6 +44,21 @@ export class ManageCustomerPage extends React.Component {
     let formIsValid = true;
     let errors = {};
 
+    if (this.state.customer.firstName.length == 0) {
+      errors.firstName = 'First Name cannot be blank';
+      formIsValid = false;
+    }
+
+    if (this.state.customer.lastName.length == 0) {
+      errors.lastName = 'Last Name cannot be blank';
+      formIsValid = false;
+    }
+
+    if (this.state.customer.email.length == 0) {
+      errors.email = 'Email cannot be blank';
+      formIsValid = false;
+    }
+
     if (this.state.customer.phoneNumber.length < 10 ||  this.state.customer.phoneNumber.length > 10){
       errors.phoneNumber = 'Phone Number must be 10 characters';
       formIsValid = false;
