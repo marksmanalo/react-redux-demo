@@ -68,7 +68,7 @@ class CustomerApi {
         // Simulate server-side validation
         const phoneNumberLength = 10;
         if (customer.phoneNumber.length < phoneNumberLength || customer.phoneNumber.length > phoneNumberLength) {
-          reject(`Title must be ${phoneNumberLength} characters.`);
+          reject(`Phone Number must be ${phoneNumberLength} characters.`);
         }
 
         if (customer.id) {
