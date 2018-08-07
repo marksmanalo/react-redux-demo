@@ -17,7 +17,7 @@ describe('Async Action', () => {
     // Here's an example call to nock to mock a real api
     // nock('http://example.com/')
     //  .get('/customers')
-    //  .reply(200, {body: {customer: [{ id: 1, firstName: 'Cory', lastName: 'House'}]}});
+    //  .reply(200, {body: {customer: [{ id: 1, firstName: 'Json', lastName: 'Bodee'}]}});
 
     // but we are using a mock api so we dont need to do the above
     const expectedActions = [
