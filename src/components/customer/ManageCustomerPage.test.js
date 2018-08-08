@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import { ManageCustomerPage } from './ManageCustomerPage';
 
 describe('Manage Customer Page', () => {
-  it('sets error message when trying to save empty title', () => {
+  it('sets error message when trying to save empty firstName', () => {
 
     const props = {
       vehicles: [],
@@ -16,6 +16,6 @@ describe('Manage Customer Page', () => {
     const saveButton = wrapper.find('input').last();
     expect(saveButton.prop('type')).toBe('submit');
     saveButton.simulate('click');
-    expect(wrapper.state().errors.phoneNumber).toBe('Phone Number must be 10 characters');
+    expect(wrapper.state().errors.firstName).toBe('First Name cannot be blank');
   });
 });
