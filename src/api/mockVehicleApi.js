@@ -5,19 +5,19 @@ import delay from './delay';
 // All calls return promises.
 const vehicles = [
   {
-    id: 'white-civic',
+    id: 'civic',
     miles: '10000',
     color: 'white',
     model: 'Civic'
   },
   {
-    id: 'black-crv',
+    id: 'crv',
     miles: '20000',
     color: 'black',
     model: 'CRV'
   },
   {
-    id: 'silver-accord',
+    id: 'accord',
     miles: '2000',
     color: 'silver',
     model: 'Accord'
@@ -26,7 +26,7 @@ const vehicles = [
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (vehicle) => {
-  return vehicle.color.toLowerCase() + '-' + vehicle.model.toLowerCase();
+  return vehicle.model.toLowerCase();
 };
 
 class VehicleApi {

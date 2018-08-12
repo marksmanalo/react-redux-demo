@@ -40,6 +40,11 @@ export class ManageCustomerPage extends React.Component {
     browserHistory.push('/customers');
   }
 
+  validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
   customerFormIsValid() {
     let formIsValid = true;
     let errors = {};
@@ -54,11 +59,12 @@ export class ManageCustomerPage extends React.Component {
       formIsValid = false;
     }
 
-    if (this.state.customer.email.length == 0) {
-      errors.email = 'Email cannot be blank';
+    if (!this.validateEmail(this.state.customer.email)) {
+      errors.email = 'Email format is incorrect';
       formIsValid = false;
     }
 
+    // Commenting this our so we can see server side validation
     // if (this.state.customer.phoneNumber.length < 10 ||  this.state.customer.phoneNumber.length > 10){
     //   errors.phoneNumber = 'Phone Number must be 10 characters';
     //   formIsValid = false;

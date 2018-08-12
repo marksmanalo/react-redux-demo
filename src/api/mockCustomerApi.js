@@ -10,7 +10,7 @@ const customers = [
     lastName: "romero",
     email: "al.romero@gmail.com",
     phoneNumber: "4561239874",
-    vehicleId: ""
+    vehicleId: "civic"
   },
   {
     id: "stan-lee",
@@ -18,7 +18,7 @@ const customers = [
     lastName: "lee",
     email: "stan@lee.com",
     phoneNumber: "3453845678",
-    vehicleId: ""    
+    vehicleId: "accord"    
   },
   {
     id: "kenny-smith",
@@ -43,7 +43,7 @@ const customers = [
     email: "mp@mgail.com",
     phoneNumber: "2338765545",
     vehicleOfInterest: "Pilot",
-    vehicleId: ""
+    vehicleId: "crv"
   }
 ];
 
