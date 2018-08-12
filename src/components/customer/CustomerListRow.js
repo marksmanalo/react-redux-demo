@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const CustomerListRow = ( {customer} ) => {
+const CustomerListRow = ( {customer, handleShow} ) => {
   return (
     <tr>
       <td><Link to={'/customer/' + customer.id}>{customer.firstName} {customer.lastName}</Link></td>
@@ -9,7 +9,7 @@ const CustomerListRow = ( {customer} ) => {
       <td>{customer.phoneNumber}</td>
       <td>
         {customer.vehicleId ? 
-          <div className="btn btn-primary" >
+          <div className="btn btn-primary" onClick={handleShow} >
             {customer.vehicleId}
           </div> : null
         }

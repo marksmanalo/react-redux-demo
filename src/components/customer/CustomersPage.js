@@ -43,7 +43,7 @@ class CustomersPage extends React.Component {
           className="btn btn-primary"
           onClick={this.redirectToAddCustomerPage}
         />        
-        <CustomerList customers={customers} />
+        <CustomerList customers={customers} handleShow={this.handleShow} />
         {vehicles.map( vehicle => {
           return (<div>{vehicle.id}</div>);
         })}

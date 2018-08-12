@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomerListRow from './CustomerListRow';
 
-const CustomerList = ({customers}) => {
+const CustomerList = ({customers, handleShow}) => {
   return (
     <table className="table">
       <thead>
@@ -14,7 +14,7 @@ const CustomerList = ({customers}) => {
       </thead>
       <tbody>
       {customers.map( customer =>
-        <CustomerListRow key={customer.id} customer={customer} />
+        <CustomerListRow key={customer.id} customer={customer} handleShow={handleShow} />
       )}
       </tbody>
     </table>
