@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import * as customerActions from '../../actions/customerActions';
 import CustomerList from './CustomerList';
 import { browserHistory } from 'react-router';
-import VehcleModal from '../vehicle/VehicleModal';
+import VehicleModal from '../vehicle/VehicleModal';
+import { getSelectedVehicle } from '../../selectors/selectors';
 
 class CustomersPage extends React.Component {
   constructor(props, context) {
@@ -14,7 +15,8 @@ class CustomersPage extends React.Component {
     this.handleClose = this.handleClose.bind(this);
 
     this.state = {
-      showVehicleModal: true
+      showVehicleModal: false,
+      selectedVehicle: {}
     };
   }
 
@@ -22,8 +24,8 @@ class CustomersPage extends React.Component {
     this.setState({showVehicleModal: false });
   }
 
-  handleShow() {
-    this.setState({ showVehicleModal: true });
+  handleShow(selectedVehicleId) {
+    this.setState({ showVehicleModal: true, selectedVehicle: getSelectedVehicle(this.props.vehicles, selectedVehicleId) });
   }
 
   redirectToAddCustomerPage() {
@@ -32,7 +34,6 @@ class CustomersPage extends React.Component {
 
   render () {
     const { customers } = this.props;
-    const { vehicles } = this.props;
 
     return (
       <div>
@@ -44,11 +45,7 @@ class CustomersPage extends React.Component {
           onClick={this.redirectToAddCustomerPage}
         />        
         <CustomerList customers={customers} handleShow={this.handleShow} />
-        {vehicles.map( vehicle => {
-          return (<div>{vehicle.id}</div>);
-        })}
-
-        <VehcleModal show={this.state.showVehicleModal} handleClose={this.handleClose} />
+        <VehicleModal show={this.state.showVehicleModal} handleClose={this.handleClose} vehicle={this.state.selectedVehicle} />
       </div>
     );
   }

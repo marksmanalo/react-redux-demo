@@ -6,3 +6,8 @@ export function vehiclesFormattedForDropdown(vehicles) {
     };
   });
 }
+
+export function getSelectedVehicle(vehicles, selectedVehicleId) {
+  debugger;
+  return vehicles.filter(vehicle => vehicle.id === selectedVehicleId)[0];
+}
