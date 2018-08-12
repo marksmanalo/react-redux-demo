@@ -7,7 +7,13 @@ const CustomerListRow = ( {customer} ) => {
       <td><Link to={'/customer/' + customer.id}>{customer.firstName} {customer.lastName}</Link></td>
       <td>{customer.email}</td>
       <td>{customer.phoneNumber}</td>
-      <td>{customer.vehicleId}</td>
+      <td>
+        {customer.vehicleId ? 
+          <div className="btn btn-primary" >
+            {customer.vehicleId}
+          </div> : null
+        }
+      </td>
     </tr>
   );
 };

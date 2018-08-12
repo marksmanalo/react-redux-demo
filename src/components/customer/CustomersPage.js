@@ -4,11 +4,26 @@ import { bindActionCreators } from 'redux';
 import * as customerActions from '../../actions/customerActions';
 import CustomerList from './CustomerList';
 import { browserHistory } from 'react-router';
-import { Modal } from 'react-bootstrap';
+import VehcleModal from '../vehicle/VehicleModal';
 
 class CustomersPage extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
+    this.state = {
+      showVehicleModal: true
+    };
+  }
+
+  handleClose() {
+    this.setState({showVehicleModal: false });
+  }
+
+  handleShow() {
+    this.setState({ showVehicleModal: true });
   }
 
   redirectToAddCustomerPage() {
@@ -17,6 +32,7 @@ class CustomersPage extends React.Component {
 
   render () {
     const { customers } = this.props;
+    const { vehicles } = this.props;
 
     return (
       <div>
@@ -28,12 +44,11 @@ class CustomersPage extends React.Component {
           onClick={this.redirectToAddCustomerPage}
         />        
         <CustomerList customers={customers} />
+        {vehicles.map( vehicle => {
+          return (<div>{vehicle.id}</div>);
+        })}
 
-        <Modal show={true}>
-          <Modal.Header>
-              <Modal.Title>test</Modal.Title>
-          </Modal.Header>
-        </Modal>
+        <VehcleModal show={this.state.showVehicleModal} handleClose={this.handleClose} />
       </div>
     );
   }
@@ -41,7 +56,8 @@ class CustomersPage extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    customers: state.customers
+    customers: state.customers,
+    vehicles: state.vehicles
   };
 }
 
