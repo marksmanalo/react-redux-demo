@@ -42,7 +42,6 @@ const customers = [
     lastName: "pui",
     email: "mp@mgail.com",
     phoneNumber: "2338765545",
-    vehicleOfInterest: "Pilot",
     vehicleId: "crv"
   }
 ];

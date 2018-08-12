@@ -21,6 +21,12 @@ const vehicles = [
     miles: '2000',
     color: 'silver',
     model: 'Accord'
+  },
+  {
+    id: 'pilot',
+    miles: '30000',
+    color: 'green',
+    model: 'Pilot'
   }
 ];
 
