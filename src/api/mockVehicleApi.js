@@ -9,28 +9,32 @@ const vehicles = [
     miles: '10000',
     color: 'White',
     model: 'Civic',
-    year: 2017
+    year: 2017,
+    price: 20000
   },
   {
     id: 'crv',
     miles: '20000',
     color: 'Black',
     model: 'CRV',
-    year: 2018
+    year: 2018,
+    price: 24000
   },
   {
     id: 'accord',
     miles: '2000',
     color: 'Silver',
     model: 'Accord',
-    year: 2010
+    year: 2010,
+    price: 22000
   },
   {
     id: 'pilot',
     miles: '30000',
     color: 'Green',
     model: 'Pilot',
-    year: 2016
+    year: 2016,
+    price: 28000
   }
 ];
 
