@@ -50,12 +50,12 @@ export class ManageCustomerPage extends React.Component {
     let errors = {};
 
     if (this.state.customer.firstName.length == 0) {
-      errors.firstName = 'First Name cannot be blank';
+      errors.firstName = 'First Name is required';
       formIsValid = false;
     }
 
     if (this.state.customer.lastName.length == 0) {
-      errors.lastName = 'Last Name cannot be blank';
+      errors.lastName = 'Last Name is required';
       formIsValid = false;
     }
 

@@ -6,6 +6,7 @@ const VehicleTable = ( {vehicle} ) => {
       <thead>
       <tr>
         <th>Model</th>
+        <th>Year</th>
         <th>Color</th>
         <th>Miles</th>
       </tr>
@@ -13,6 +14,7 @@ const VehicleTable = ( {vehicle} ) => {
       <tbody>
         <tr>
           <td>{vehicle.model}</td>
+          <td>{vehicle.year}</td>
           <td>{vehicle.color}</td>
           <td>{vehicle.miles}</td>
         </tr>

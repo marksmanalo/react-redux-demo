@@ -5,9 +5,10 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="jumbotron">
-          <p>Dealership with customers and their vehicle of interest </p>
-          <p>Uses react, redux and react router</p>
-          <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
+        <h1>Honda</h1>
+        <p>Dealership with customers and their vehicle of interest </p>
+        <p>Uses react, redux and react router</p>
+        <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
       </div>
     );
   }
