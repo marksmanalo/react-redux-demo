@@ -12,6 +12,7 @@ const CustomerForm = ({customer, allVehicles, onSave, onChange, saving, errors})
         value={customer.firstName}
         onChange={onChange}
         error={errors.firstName}
+        inputType="text"
       />
 
       <TextInput
@@ -20,6 +21,7 @@ const CustomerForm = ({customer, allVehicles, onSave, onChange, saving, errors})
         value={customer.lastName}
         onChange={onChange}
         error={errors.lastName}
+        inputType="text"
       />    
 
       <SelectInput
@@ -38,6 +40,7 @@ const CustomerForm = ({customer, allVehicles, onSave, onChange, saving, errors})
         value={customer.email}
         onChange={onChange}
         error={errors.email}
+        inputType="text"
       />
 
       <TextInput
@@ -46,6 +49,7 @@ const CustomerForm = ({customer, allVehicles, onSave, onChange, saving, errors})
         value={customer.phoneNumber}
         onChange={onChange}
         error={errors.phoneNumber}
+        inputType="number"
       />
 
       <input

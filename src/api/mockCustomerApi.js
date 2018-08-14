@@ -65,9 +65,8 @@ class CustomerApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
-        const phoneNumberLength = 10;
-        if (customer.phoneNumber.length < phoneNumberLength || customer.phoneNumber.length > phoneNumberLength) {
-          reject(`Phone Number must be ${phoneNumberLength} characters.`);
+        if (customer.phoneNumber.length == 0) {
+          reject(`Phone Number is required`);
         }
 
         if (customer.id) {
